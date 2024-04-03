@@ -16,6 +16,7 @@ import '../../api/services/todo/TodoService.dart';
 import '../../features/todo/usecase/ITodoUsecase.dart';
 import '../../features/todo/usecase/TodoUsecase.dart';
 import '../storage/hive.dart';
+import 'app.theme.dart';
 
 final locator = StackedLocator.instance;
 
@@ -33,6 +34,6 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => HiveService());
   locator.registerLazySingleton<ITodoService>(() => TodoService.getInstance());
-  locator.registerLazySingleton<ITodoUsecase>(
-      () => TodoUsecase(locator.get<ITodoService>()));
+  locator.registerLazySingleton<ITodoUsecase>(() => TodoUsecase());
+  locator.registerSingleton(AppTheme());
 }

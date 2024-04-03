@@ -14,13 +14,13 @@ class TodoService implements ITodoService {
   TodoService(this.hiveService, this.uid);
 
   static getInstance() => TodoService(
-        locator.get<HiveService>(),
+        locator<HiveService>(),
         _generateRandomUid(),
       );
 
   static String _generateRandomUid() {
     int random = Random().nextInt(1000);
-    return random.toString() + "todo";
+    return "${random.toString()}todo";
   }
 
   @override

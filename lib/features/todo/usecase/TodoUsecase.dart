@@ -1,13 +1,12 @@
 import 'package:Stacked/api/services/todo/ITodoService.dart';
+import 'package:Stacked/core/app/app.locator.dart';
 import 'package:Stacked/core/app/app.typedefs.dart';
 import 'package:Stacked/core/utils/errors.dart';
 import 'package:Stacked/features/todo/usecase/ITodoUsecase.dart';
 import 'package:dartz/dartz.dart';
 
 class TodoUsecase implements ITodoUsecase {
-  final ITodoService _todoService;
-
-  TodoUsecase(this._todoService);
+  final ITodoService _todoService = locator<ITodoService>();
 
   @override
   Future<Either<UIError, VoidType>> addTasks({
