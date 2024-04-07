@@ -15,19 +15,20 @@ class TodoView extends StatelessWidget {
       viewModelBuilder: () => TodoViewModel(),
       onViewModelReady: (model) async => await model.fetchAllTodos(),
       builder: (_, model, __) => Scaffold(
-          body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            TodoAppBar(todoCounts: model.todos.length),
-            model.isBusy
-                ? const CupertinoActivityIndicator()
-                : TodoContent(todos: model.todos),
-            TodoAdd(model: model),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              TodoAppBar(todoCounts: model.todos.length),
+              model.isBusy
+                  ? const CupertinoActivityIndicator()
+                  : TodoContent(todos: model.todos),
+              TodoAdd(model: model),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }

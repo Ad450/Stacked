@@ -1,0 +1,7 @@
+{
+    "appBarTitle": "Your Projects",
+    "@appBarTitle": {
+        "description": "The title of the app bar, shows number of todos created"
+    }
+}
+
